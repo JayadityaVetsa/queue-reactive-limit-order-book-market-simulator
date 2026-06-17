@@ -12,3 +12,9 @@ data/raw/*
 !data/raw/.gitkeep
 *.log
 .streamlit/secrets.toml
+AGENT_PROMPT.md
+ARCHITECTURE.md
+DATASETS.md
+PLAN.md
+RESEARCH.md
+TASKS.md
