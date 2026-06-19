@@ -24,3 +24,14 @@ def test_remove_order_deletes_when_empty():
         pass
     else:
         raise AssertionError("empty order should be removed")
+
+
+def test_get_volume_ahead_sums_only_orders_before_position():
+    tracker = QueueTracker()
+    tracker.insert_order("a", Side.ASK, 1, 10)
+    tracker.insert_order("b", Side.ASK, 1, 7)
+    tracker.insert_order("c", Side.ASK, 1, 3)
+
+    assert tracker.get_volume_ahead(Side.ASK, 1, 0) == 0
+    assert tracker.get_volume_ahead(Side.ASK, 1, 1) == 10
+    assert tracker.get_volume_ahead(Side.ASK, 1, 2) == 17
