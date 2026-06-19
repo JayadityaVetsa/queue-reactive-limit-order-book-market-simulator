@@ -1,0 +1,30 @@
+name: PatchProof
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  patchproof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out complete Git history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run PatchProof
+        uses: JayadityaVetsa/PatchProof@b5302026c4238a0aa3f6159cb6f1dc719797a62c
+        with:
+          config: .patchproof.yml
+          upload-report: "true"
+          fail-on: regression,inconclusive,still_failing,not_proven
