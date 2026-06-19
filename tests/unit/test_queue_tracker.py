@@ -1,3 +1,5 @@
+import pytest
+
 from lob_sim.queue_tracker import QueueTracker
 from lob_sim.types import Side
 
@@ -24,3 +26,10 @@ def test_remove_order_deletes_when_empty():
         pass
     else:
         raise AssertionError("empty order should be removed")
+
+
+def test_insert_order_rejects_non_positive_level():
+    tracker = QueueTracker()
+
+    with pytest.raises(ValueError, match="level must be positive"):
+        tracker.insert_order("bad-level", Side.BID, 0, 10)
