@@ -1,0 +1,34 @@
+version: 1
+adapter: python
+
+execution:
+  setup:
+    - python
+    - -m
+    - pip
+    - install
+    - -e
+    - ".[dev]"
+  targetedTest:
+    - python
+    - -m
+    - pytest
+    - -q
+    - "{test_id}"
+  suite:
+    - python
+    - -m
+    - pytest
+    - -q
+  timeoutSeconds: 120
+  suiteTimeoutSeconds: 600
+
+tests:
+  include:
+    - "tests/**/test_*.py"
+  exclude: []
+  support: []
+
+report:
+  format: text
+  output: null
