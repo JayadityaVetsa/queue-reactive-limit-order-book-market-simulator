@@ -30,12 +30,16 @@ class OrderBook:
             raise ValueError("levels must be positive")
         if self.tick_size <= 0:
             raise ValueError("tick_size must be positive")
+        if self.initial_depth <= 0 or self.replenish_depth <= 0:
+            raise ValueError("initial and replenishment depths must be positive")
         if not self.bids:
             self.bids = [self.initial_depth for _ in range(self.levels)]
         if not self.asks:
             self.asks = [self.initial_depth for _ in range(self.levels)]
         if len(self.bids) != self.levels or len(self.asks) != self.levels:
             raise ValueError("bid and ask arrays must match levels")
+        if any(depth < 0 for depth in self.bids + self.asks):
+            raise ValueError("queue depths must be non-negative")
 
     def clone(self) -> "OrderBook":
         """Return an independent copy of the book."""

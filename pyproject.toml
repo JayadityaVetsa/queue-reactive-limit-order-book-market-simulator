@@ -4,10 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "queue-reactive-lob-simulator"
-version = "0.1.0"
-description = "Queue-reactive limit order book simulator with calibration, validation, and an interactive dashboard."
+version = "0.2.0"
+description = "Queue-reactive order book with native FIFO execution and reproducible trading experiments."
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.11"
 license = {text = "MIT"}
 authors = [{name = "Quant Projects"}]
 dependencies = [

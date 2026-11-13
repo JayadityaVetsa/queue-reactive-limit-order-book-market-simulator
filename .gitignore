@@ -11,6 +11,13 @@ dist/
 data/raw/*
 !data/raw/.gitkeep
 *.log
+*.dll
+*.so
+*.dylib
+reports/native/
+reports/smoke/
+reports/alpha_smoke/
+reports/development_sweep.csv
 .streamlit/secrets.toml
 AGENT_PROMPT.md
 ARCHITECTURE.md

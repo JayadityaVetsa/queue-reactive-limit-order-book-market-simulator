@@ -1,3 +1,5 @@
+import pytest
+
 from lob_sim.order_book import OrderBook
 from lob_sim.types import Side
 
@@ -32,3 +34,8 @@ def test_snapshot_contains_research_metrics():
     assert snap.bid_depth == 20
     assert snap.ask_depth == 20
     assert snap.imbalance == 0.0
+
+
+def test_replenishment_must_be_positive():
+    with pytest.raises(ValueError):
+        OrderBook(levels=1, replenish_depth=0)

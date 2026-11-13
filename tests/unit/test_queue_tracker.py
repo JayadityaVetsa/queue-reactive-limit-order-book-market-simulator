@@ -1,3 +1,5 @@
+import pytest
+
 from lob_sim.queue_tracker import QueueTracker
 from lob_sim.types import Side
 
@@ -24,3 +26,14 @@ def test_remove_order_deletes_when_empty():
         pass
     else:
         raise AssertionError("empty order should be removed")
+
+
+def test_consume_front_rejects_non_positive_volume():
+    tracker = QueueTracker()
+    tracker.insert_order("a", Side.BID, 1, 10)
+
+    with pytest.raises(ValueError, match="volume must be positive"):
+        tracker.consume_front(Side.BID, 1, 0)
+
+    with pytest.raises(ValueError, match="volume must be positive"):
+        tracker.consume_front(Side.BID, 1, -1)

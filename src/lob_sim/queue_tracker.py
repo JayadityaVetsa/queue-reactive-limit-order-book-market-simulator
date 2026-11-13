@@ -47,6 +47,8 @@ class QueueTracker:
         return removed
 
     def consume_front(self, side: Side, level: int, volume: int) -> list[tuple[str, int]]:
+        if volume <= 0:
+            raise ValueError("volume must be positive")
         fills: list[tuple[str, int]] = []
         queue = self._queues[(side, level)]
         remaining = volume

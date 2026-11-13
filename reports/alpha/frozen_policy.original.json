@@ -1,0 +1,151 @@
+{
+  "models": {
+    "0": {
+      "coefficients": [
+        -0.019400228220723518,
+        0.7600806140440893,
+        0.5381019198448324,
+        1.7837295142558256,
+        0.14821030368438848,
+        0.1750823948018931,
+        0.09964049983529157,
+        0.06824916019512714,
+        -0.014990368421964963,
+        0.11612601958335107,
+        0.07577322890646752,
+        0.06663850759860225,
+        -0.008650417280614683,
+        -0.8931841559033389,
+        -0.1135319375318245,
+        1.7056191838616355
+      ],
+      "volume_scale": 17.27317396152774,
+      "horizon": 20,
+      "latency": 0,
+      "ridge": 10.0,
+      "observations": 119200,
+      "feature_names": [
+        "intercept",
+        "imbalance_1",
+        "imbalance_2",
+        "imbalance_4",
+        "imbalance_8",
+        "log_depth_difference_1",
+        "log_depth_difference_2",
+        "log_depth_difference_3",
+        "log_depth_difference_4",
+        "log_depth_difference_5",
+        "log_depth_difference_6",
+        "log_depth_difference_7",
+        "log_depth_difference_8",
+        "sweep_difference_1",
+        "sweep_difference_2",
+        "sweep_difference_4"
+      ]
+    },
+    "8": {
+      "coefficients": [
+        -0.03364944661983818,
+        1.009765037840345,
+        -0.4989476329646764,
+        1.6806427335841654,
+        0.2106731539913714,
+        -0.07074149146383385,
+        0.12132476235888161,
+        0.038735207806905286,
+        -0.005385811232763335,
+        0.09591934298554693,
+        0.0873842051789819,
+        0.07154524507963399,
+        -0.019124792320045342,
+        -0.9231457609124143,
+        -0.31673743476135663,
+        0.1407344670089194
+      ],
+      "volume_scale": 17.27317396152774,
+      "horizon": 20,
+      "latency": 8,
+      "ridge": 10.0,
+      "observations": 118880,
+      "feature_names": [
+        "intercept",
+        "imbalance_1",
+        "imbalance_2",
+        "imbalance_4",
+        "imbalance_8",
+        "log_depth_difference_1",
+        "log_depth_difference_2",
+        "log_depth_difference_3",
+        "log_depth_difference_4",
+        "log_depth_difference_5",
+        "log_depth_difference_6",
+        "log_depth_difference_7",
+        "log_depth_difference_8",
+        "sweep_difference_1",
+        "sweep_difference_2",
+        "sweep_difference_4"
+      ]
+    }
+  },
+  "margin": 0.5,
+  "active": true,
+  "training_seeds": [
+    100,
+    101,
+    102,
+    103,
+    104
+  ],
+  "validation_seeds": [
+    200,
+    201,
+    202,
+    203,
+    204
+  ],
+  "train_events": 3000,
+  "validation_events": 4000,
+  "development_seeds": [
+    30,
+    31,
+    40,
+    41,
+    42,
+    50,
+    51,
+    52,
+    53,
+    54
+  ],
+  "candidate_margins": [
+    0.0,
+    0.25,
+    0.5,
+    0.75
+  ],
+  "selection": "maximum mean validation net P&L; cash if all <= 0",
+  "validation_scores": {
+    "0.0": 14.50199999993838,
+    "0.25": 30.090999999951055,
+    "0.5": 37.254999999963914,
+    "0.75": 32.38399999997364
+  },
+  "clip_size": 1,
+  "horizon": 20,
+  "ridge": 10.0,
+  "source_sha256": {
+    "src\\lob_sim\\__init__.py": "e1ef79c9241531e52d344fd5fc54671059e4ea0a4daf03034016f91b2af61359",
+    "src\\lob_sim\\alpha_strategy.py": "ede01e1a4a181b1d76eabf8292f40883a2381fd0e46b78c38e4740c65daef1fa",
+    "src\\lob_sim\\calibration.py": "b97ff65310ad6f778969ad2c5edd76309d3f05c0ff683fc5d16548c0dca18d57",
+    "src\\lob_sim\\cli.py": "4616945d1855fd546bbef280a82bd43a5b146a562ec2fe4f8d8d69c9ce07b51b",
+    "src\\lob_sim\\execution.py": "efd903cbc18503189e8e3c981d82c1b732b0d4cc5b5b413ebd9e45e97dcf4d5e",
+    "src\\lob_sim\\market_making.py": "ff34918a41cbf2feb434937dabd260215fe54d35e78d76c5a3332e82beaa03e0",
+    "src\\lob_sim\\order_book.py": "3dcaa93556e09e38fda34e8be0d134cf21b602752c05fc90146dbcd240f3cdeb",
+    "src\\lob_sim\\queue_tracker.py": "6cfe0bf815d27c347c4823f45bee1e468727a692e7c7fca8d6d8ff4ad07a95ec",
+    "src\\lob_sim\\simulator.py": "92ea3ecaf30366fe6d71c84b5add22fe4d6e0f19e40e01e225e51571dcd9a683",
+    "src\\lob_sim\\synthetic.py": "d7bba81944712635ae145990c8d3d1110af5fd109abfd9ac01af978e5ef7f74f",
+    "src\\lob_sim\\types.py": "2b3701f0d88b07bb1f67217d04cbeeec99bc1e5505d5845c91e8b239c371e2fc",
+    "src\\lob_sim\\validation.py": "391065e2a1096d67f284d143ebf2ff21155c1e3d53148aee19a72369b6966dab",
+    "scripts\\alpha_experiment.py": "f5e1ff994d055c1f99707bb5750ac6d98b2972f610b1e6530ea860db26c1198f"
+  }
+}

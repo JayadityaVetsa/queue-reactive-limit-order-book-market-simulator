@@ -17,3 +17,10 @@ def test_simulator_produces_usable_statistics():
     assert stats["mean_bid_depth"] > 0
     assert stats["mean_ask_depth"] > 0
     assert "final_midprice" in stats
+
+
+def test_repeated_run_resets_state_and_stays_inside_horizon():
+    sim = QueueReactiveSimulator(SimulationConfig(seed=5, duration=0.1, max_events=1000))
+    first = sim.run().snapshots_df().copy()
+    assert first.timestamp.max() <= 0.1
+    assert sim.run().snapshots_df().equals(first)

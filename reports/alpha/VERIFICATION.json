@@ -1,0 +1,12 @@
+{
+  "tests_passed": 30,
+  "evaluation_rows": 1600,
+  "alpha_rows": 400,
+  "profitable": 292,
+  "losing": 64,
+  "flat": 44,
+  "all_positions_liquidated": true,
+  "round_trip_and_cost_identity": true,
+  "frozen_policy_unchanged": true,
+  "path_accounting_verified": true
+}

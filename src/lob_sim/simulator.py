@@ -48,6 +48,8 @@ class QueueReactiveSimulator:
         self.snapshots: list[BookSnapshot] = []
 
     def run(self) -> "QueueReactiveSimulator":
+        # A run is a reproducible experiment, not an implicit continuation.
+        self.reset()
         t = 0.0
         self.events.clear()
         self.trades.clear()
@@ -58,9 +60,11 @@ class QueueReactiveSimulator:
             total_rate = sum(rates.values())
             if total_rate <= 0:
                 break
-            t += self.rng.expovariate(total_rate)
-            if t > self.config.duration:
+            next_t = t + self.rng.expovariate(total_rate)
+            if next_t > self.config.duration:
+                t = self.config.duration
                 break
+            t = next_t
 
             event_type = self._choose_event_type(rates, total_rate)
             side = self._choose_side(event_type)
