@@ -15,6 +15,7 @@ The latest frozen policy was profitable in **292 of 400 fresh simulation runs (7
 - [Earlier market-making findings](reports/market_making/REPORT.md): the losing strategies that motivated the new policy. This is a preserved prior experiment, with its original source snapshot hashes.
 - [Execution and accounting notes](docs/MARKET_MAKING.md): quote rules, units, queue assumptions, equations, native build instructions, and tradeoffs.
 - [Latest run-level results](reports/alpha/runs.csv), [frozen policy](reports/alpha/frozen_policy.json), and [reproduction manifest](reports/alpha/manifest.json).
+- [CI and verification](docs/CI.md): active Python checks, local native coverage, and the prepared workflow expansion.
 
 ## Reproduce
 

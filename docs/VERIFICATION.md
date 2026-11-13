@@ -31,12 +31,14 @@ All **160 historical tape hashes** from the earlier market-making experiment wer
 
 ## Practical limits
 
-Linux CI configuration builds the native library and runs tests plus a small experiment; that hosted workflow has not been executed from this workspace. The existing dashboard was not changed or newly exercised in this extension. No throughput benchmark or real-market validation was performed.
+The prepared Linux CI expansion builds the native library and runs tests plus small experiments. GitHub refused the workflow edit because the available credentials lack workflow-write permission, so the active hosted workflow still runs the Python suite. See `docs/CI.md` and the ready-to-apply patch. The existing dashboard was not changed or newly exercised in this extension. No throughput benchmark or real-market validation was performed.
 
 An attempted local browser preview of the generated figure was blocked by the browser environment's inability to reach the local HTTP server. HTML generation completed, but this extension does not claim a visual browser inspection.
 
 ## Publication checks · November 13, 2026
 
 The fresh GitHub checkout passed **31 tests** with the compiled C++ library enabled. This includes a new regression check that source hashes are identical across LF/CRLF checkouts and use portable path separators. The frozen full model also completed a small evaluation through the portable hash guard; the native maker experiment completed its own smoke run.
+
+The first published commit, `514b140be1a691becf4dba8f1f7d03b90d8e079c`, passed the existing hosted CI workflow. Expanded native/smoke CI coverage is prepared in `docs/ci-update.patch` and awaits workflow-write permission.
 
 Original evaluation manifests and the frozen model snapshot are preserved. Publication changes only the source-hash serialization and adds a regression test, package metadata and exported walkthroughs. Coefficients, the selected margin and historical result CSVs are unchanged. The full 400-run alpha study was not rerun during publication because forecast and trading calculations did not change.

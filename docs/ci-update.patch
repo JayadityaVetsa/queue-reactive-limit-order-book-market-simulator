@@ -1,0 +1,12 @@
+--- a/.github/workflows/ci.yml
++++ b/.github/workflows/ci.yml
+@@ -14,4 +14,9 @@
+           python-version: "3.11"
+       - run: python -m pip install --upgrade pip
+       - run: python -m pip install -e ".[dev]"
++      - run: g++ -std=c++17 -O2 -Wall -Wextra -Werror -fPIC -shared native/execution.cpp -o execution.so
+       - run: pytest
++        env:
++          LOB_NATIVE: ./execution.so
++      - run: python scripts/market_making_experiment.py --events 200 --seeds 2 --native ./execution.so --output /tmp/lob-smoke
++      - run: python scripts/alpha_experiment.py --events 200 --train-events 200 --train-seeds 2 --validation-seeds 2 --seeds 2 --output /tmp/lob-alpha-smoke
